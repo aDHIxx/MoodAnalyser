@@ -31,8 +31,10 @@ public class MoodAnalyser {
      */
     public Mood analyseMood() throws MoodException, Mood {
         try {
-            if (message == null || message.trim().isEmpty()) {
-                throw new MoodException("Invalid mood.");
+            if (message == null) {
+                throw new MoodException("Invalid mood: Message cannot be null", MoodErrors.NULL_MESSAGE);
+            } else if (message.trim().isEmpty()) {
+                throw new MoodException("Invalid mood: Message cannot be empty", MoodErrors.EMPTY_MESSAGE);
             }
 
             if (message.toLowerCase().contains("sad")) {
@@ -41,7 +43,8 @@ public class MoodAnalyser {
                 return new Mood(Mood.MoodType.HAPPY);
             }
         } catch (NullPointerException e) {
-            throw new Mood(Mood.MoodType.HAPPY);
+            // Handle null scenario and throw MoodAnalysisException
+            throw new MoodException("Invalid mood: Message cannot be null", MoodErrors.NULL_MESSAGE);
         }
     }
 
