@@ -4,7 +4,7 @@ package com.bridgelabz.moodAnalyser;
  * @class: Mood
  * @desc: Class to store the mood
  */
-public class Mood {
+public class Mood extends Throwable {
     /*
      * @name : MoodType
      * @desc: Enum to store the mood types
