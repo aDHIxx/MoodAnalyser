@@ -1,4 +1,5 @@
 package com.bridgelabz.moodAnalyser;
+
 /*
  * @class: Mood
  * @desc: Class to store the mood
